@@ -5,12 +5,12 @@ module ArithmeticLogicUnit (
     output reg signed [7:0] y
 );
 
-reg signed [3:0] s1;
-reg signed [3:0] s2;
+reg signed [7:0] s1;
+reg signed [7:0] s2;
 
-reg signed [3:0] s3;
+reg signed [7:0] s3;
 
-reg signed [3:0] s5;
+reg signed [7:0] s5;
 
 always @(*) begin
 
