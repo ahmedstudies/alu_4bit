@@ -1,0 +1,31 @@
+module top (
+    input [3:0] sel,
+    input clk,
+    output [0:6]seg,
+    output [3:0]an
+);
+// Select a and b values
+assign a = 4'b1100; //3
+assign b = 4'b0101; //-6
+
+//output of ALU
+wire signed [7:0] ALU_out;
+
+//Instantiate our ALU
+ArithmeticLogicUnit (
+    .a(a),
+    .b(b),
+    .sel(sel),
+    .y(ALU_out)
+);
+
+//Instaniate the Decoder
+digital_tube_decoder (
+    .clk(clk),
+    .A(ALU_out),
+    .sel(sel[3]),
+    .seg(seg),
+    .an(an)
+);
+
+endmodule
